@@ -1,7 +1,7 @@
 {
   "name": "LiriBot",
   "version": "1.0.0",
-  "description": "This is a LIRI bot, that will give info about songs from Spotify, Shows by band name, and Movie information.",
+  "description": "This is a LIRI bot, that will give info about songs from Spotify, Shows info about any band by name, and any movie's information.",
   "main": "keys.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,8 +21,10 @@
     "axios": "^0.19.2",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
     "moment": "^2.24.0",
     "node-spotify-api": "^1.1.1",
+    "omdb": "^0.8.0",
     "spotify": "^0.3.0"
   }
 }

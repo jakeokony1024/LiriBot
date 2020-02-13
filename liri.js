@@ -1,14 +1,12 @@
 var keys = require('./keys.js');
-
 var axios = require('axios');
-
-var Spotify = require('node-spotify-api');
-
+var fs = require("fs");
 var moment = require('moment');
-
 var Spotify = require('node-spotify-api');
-
 var colors = require('colors');
+var omdb = require('omdb');
+
+
 
 var getMeShows = function (bandName) {
 
@@ -48,19 +46,53 @@ var getMeSpotify = function (songName) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-          
+
         var songs = data.tracks.items;
 
         for (var i = 0; i < songs.length; i++) {
-            
+
             console.log("Artist(s): " + songs[i].artists.map(getMeArtists));
             console.log("Song Name: " + songs[i].name.brightRed);
             console.log("Song Link: " + songs[i].external_urls.spotify.cyan);
-            console.log("Album: " + songs[i].album.name.brightRed);
+            console.log("Album: " + songs[i].album.name.brightMagenta);
             console.log("-----------------------------------------------------".brightGreen);
-        } 
-        
+        }
+
     })
+}
+
+var getMeMovies = function (movieName) {
+
+
+    axios.get("http://www.omdbapi.com/?t=" + movieName + "&apikey=3a64b6f9").then(
+        function (response) {
+            
+            var movie = response.data;
+
+            console.log('Title: ' + movie.Title.magenta)
+            console.log('Year Released: ' + movie.Released.brightYellow)
+            console.log('Actors: ' + movie.Actors.brightGreen)
+            console.log('IMDB Rating: ' + movie.imdbRating.brightBlue)
+            console.log('Plot(Shortened): ' + movie.Plot.brightCyan)
+            console.log('Rotten Tomatoes Rating: ' + movie.Ratings[1].Value.brightRed)
+            console.log('-------------------------------------------------')
+        })
+}
+
+var readTheFile = function(){
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if (error) {
+        return console.log(error);
+        }
+        var dataArr = data.split(",");
+        if (dataArr.length == 2){
+            pick(dataArr[0], dataArr[1]);
+
+        } else if (dataArr == 1 ){
+            pick(dataArr[0])
+        }
+
+    }); 
 }
 
 var pick = function (caseData, functionData) {
@@ -74,6 +106,9 @@ var pick = function (caseData, functionData) {
         case "movie-this":
             getMeMovies(functionData);
             break;
+        case 'do-what-it-says': 
+            readTheFile();
+            break;
         default:
             console.log("LIRI doesn't know that.")
     }
@@ -83,4 +118,4 @@ var runApp = function (argOne, Argtwo) {
     pick(argOne, Argtwo);
 }
 
-runApp(process.argv[2], process.argv[3]);
+runApp(process.argv[2], process.argv[3])
