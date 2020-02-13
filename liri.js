@@ -16,10 +16,11 @@ axios.get("https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=c
 
         for (var i = 0; i < response.data.length; i++){
             response.data[i].datetime = moment(response.data[i].datetime).format("MM/DD/YYYY")
-            console.log(response.data[i].venue.name);
-            console.log(response.data[i].venue.city);
-            console.log(response.data[i].datetime);
-            console.log(response.data[i].lineup);
+            console.log("Venue Name: " + response.data[i].venue.name);
+            console.log("Venue City: " + response.data[i].venue.city);
+            console.log("Venue Country: " + response.data[i].venue.country);
+            console.log("Date of Show: " + response.data[i].datetime);
+            console.log("Full Line Up: " + response.data[i].lineup);
             console.log("-----------------------------------")
         }
     })
