@@ -6,10 +6,7 @@ var Spotify = require('node-spotify-api');
 var colors = require('colors');
 var omdb = require('omdb');
 
-
-
 var getMeShows = function (bandName) {
-
 
     axios.get("https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp").then(
         function (response) {
@@ -35,8 +32,8 @@ var spotify = new Spotify({
 
 var getMeArtists = function (artists) {
     return artists.name;
-}
-
+    
+} 
 
 var getMeSpotify = function (songName) {
     spotify.search({
@@ -63,7 +60,6 @@ var getMeSpotify = function (songName) {
 
 var getMeMovies = function (movieName) {
 
-
     axios.get("http://www.omdbapi.com/?t=" + movieName + "&apikey=3a64b6f9").then(
         function (response) {
             
@@ -73,8 +69,8 @@ var getMeMovies = function (movieName) {
             console.log('Year Released: ' + movie.Released.brightYellow)
             console.log('Actors: ' + movie.Actors.brightGreen)
             console.log('IMDB Rating: ' + movie.imdbRating.brightBlue)
-            console.log('Plot(Shortened): ' + movie.Plot.brightCyan)
             console.log('Rotten Tomatoes Rating: ' + movie.Ratings[1].Value.brightRed)
+            console.log('Plot(Shortened): ' + movie.Plot.brightCyan)
             console.log('-------------------------------------------------')
         })
 }
@@ -110,7 +106,7 @@ var pick = function (caseData, functionData) {
             readTheFile();
             break;
         default:
-            console.log("LIRI doesn't know that.")
+            console.log("LIRI doesn't know that command. Please try again.")
     }
 }
 
