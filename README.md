@@ -14,6 +14,8 @@ Task 2 - The **concert-this** command, helps the user determine what venue their
 
 Task 3 - The **movie-this** command, give the user the full information read out of whatever the searched for movie is, including the title, year released, actors, IMDB and Rotten Tomatoes ratings, as well as the plot. 
 
+Task 4 - The **do-what-it-says** command, runs the read file function, and will read the text in the random.txt file and run the arguments through the liri bot! The user can change the text within the random.txt file to get liri to do different tasks. 
+
 To run LiriBot, make sure to first run **npm install** before trying to search. Not running the install will result in error codes. No other code is required as all the packages are saved within packages.json folder. 
 
 The ID key, and Secret key for spotify are private, you will have to retrieve your own versions of them. 
