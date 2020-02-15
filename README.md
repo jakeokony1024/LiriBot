@@ -6,6 +6,8 @@ Below is the sample code to get Spotify to run.
 
 **All searches must be contained within single quotations. example: node liri.js spotify-this-song 'all the small things'
 
+In the images folder, there are screenshots of the app working, to also give an idea of what to expect when using the app. 
+
 This app does four different tasks for the user, to help them get the most information about any given search, and to also read a text file that can be changed by the user as well. 
 
 Task 1 - The **spotify-this-song** command, helps the user narrow down their search results to determine what album, artist and also a link to the specific song they want. 
@@ -26,7 +28,6 @@ It's super easy, just go  https://developer.spotify.com/my-applications/#!/, the
 *Once logged in, navigate to https://developer.spotify.com/my-applications/#!/applications/create to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
 
 *On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
-
 
 **List of Tech Used**
 
